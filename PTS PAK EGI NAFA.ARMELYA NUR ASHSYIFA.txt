@@ -1,0 +1,98 @@
+Microsoft Windows [Version 10.0.22621.2134]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\anwar>cd c:\xampp1\mysql\bin
+
+c:\xampp1\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 11
+Server version: 10.4.27-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE APOTEK_NAFA_ARMELYA_NUR_ASHSYIFA_XIRPL1_ULANGAN_PTS_PAK_EGI;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> USE APOTEK_NAFA_ARMELYA_NUR_ASHSYIFA_XIRPL1_ULANGAN_PTS_PAK_EGI;
+Database changed
+MariaDB [APOTEK_NAFA_ARMELYA_NUR_ASHSYIFA_XIRPL1_ULANGAN_PTS_PAK_EGI]> CREATE TABLE TB_OBAT (kode_obat varchar(5), nama_obat varchar(50), jenis varchar(30), satuan varchar(10), stok int(3), harga_beli varchar(10), harga_jual varchar(20), primary key(kode_obat));
+
+ insert into TB_OBAT values ('K001', 'Allerin 120 cc', 'Obat Terbatas', 'Botol', 50, '20000', '22000');
+
+ insert into TB_OBAT values ('K002', 'Becombion 110 ml', 'Obat Bebas', 'Botol', 10, '15000', '16000');
+
+insert into TB_OBAT values ('K003', 'Becombion 60 ml', 'Obat Bebas', 'Botol', 5, '8000', '9000');
+
+ insert into TB_OBAT values ('K004', 'Betadine Vag Plus', 'Obat Bebas', 'Botol', 12, '12000', '13000');
+
+insert into TB_OBAT values ('K005', 'Komix', 'Obat Bebas', 'Lembar', 50, '4500', '5000');
+
+insert into TB_OBAT values ('K006', 'Diazepam', 'Obat Keras', 'tablet', 4, '55000', '60000');
+
+ insert into TB_OBAT values ('K006', 'Diazepam', 'Obat Keras', 'tablet', 4, '55000', '60000');
+
+insert into TB_OBAT values ('K007', 'CTM', 'Obat Bebas', 'tablet', 3, '70000', '75000');
+
+insert into TB_OBAT values ('K008', 'Amoxicillin', 'Obat Terbatas', 'tablet', 74, '975', '1100');
+
+insert into TB_OBAT values ('K009', 'Antimo', 'Obat Bebas', 'tablet', 2, '5100', '6000');
+
+insert into TB_OBAT values ('K010', 'Parasetamol', 'Obat Bebas', 'Strips', 100, '3000', '4000');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [APOTEK_NAFA_ARMELYA_NUR_ASHSYIFA_XIRPL1_ULANGAN_PTS_PAK_EGI]> select*from TB_OBAT;
++-----------+-------------------+---------------+--------+------+------------+------------+
+| kode_obat | nama_obat         | jenis         | satuan | stok | harga_beli | harga_jual |
++-----------+-------------------+---------------+--------+------+------------+------------+
+| K001      | Allerin 120 cc    | Obat Terbatas | Botol  |   50 | 20000      | 22000      |
+| K002      | Becombion 110 ml  | Obat Bebas    | Botol  |   10 | 15000      | 16000      |
+| K003      | Becombion 60 ml   | Obat Bebas    | Botol  |    5 | 8000       | 9000       |
+| K004      | Betadine Vag Plus | Obat Bebas    | Botol  |   12 | 12000      | 13000      |
+| K005      | Komix             | Obat Bebas    | Lembar |   50 | 4500       | 5000       |
+| K006      | Diazepam          | Obat Keras    | tablet |    4 | 55000      | 60000      |
+| K007      | CTM               | Obat Bebas    | tablet |    3 | 70000      | 75000      |
+| K008      | Amoxicillin       | Obat Terbatas | tablet |   74 | 975        | 1100       |
+| K009      | Antimo            | Obat Bebas    | tablet |    2 | 5100       | 6000       |
+| K010      | Parasetamol       | Obat Bebas    | Strips |  100 | 3000       | 4000       |
++-----------+-------------------+---------------+--------+------+------------+------------+
+10 rows in set (0.006 sec)
+
+MariaDB [APOTEK_NAFA_ARMELYA_NUR_ASHSYIFA_XIRPL1_ULANGAN_PTS_PAK_EGI]> desc TB_OBAT;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| kode_obat  | varchar(5)  | NO   | PRI | NULL    |       |
+| nama_obat  | varchar(50) | YES  |     | NULL    |       |
+| jenis      | varchar(30) | YES  |     | NULL    |       |
+| satuan     | varchar(10) | YES  |     | NULL    |       |
+| stok       | int(3)      | YES  |     | NULL    |       |
+| harga_beli | varchar(10) | YES  |     | NULL    |       |
+| harga_jual | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+7 rows in set (0.014 sec)
+
+                            JAWABAN :
+
+1. select * from TB_OBAT where satuan = 'Botol';
+
+2. select * from TB_OBAT where jenis='Obat Keras' OR jenis='Obat Terbatas';
+
+3.  select * from TB_OBAT where stok < 50;
+
+4.  select * from TB_OBAT where satuan != 'tablet';
+
+5.  select * from TB_OBAT where jenis='Obat Bebas' order by harga_jual asc;
+
+6. select * from TB_OBAT where harga_beli between 10000 and 100000 and satuan = 'botol';
+
+7.  select * from TB_OBAT where jenis='Obat Bebas' and stok >= 5;
+
+8. select * from TB_OBAT where nama_obat like 'B%';
+
+9.  select * from TB_OBAT where nama_obat like '%OM%';
+
+12.   select * from TB_OBAT where kode_obat='K001' OR kode_obat='K003' OR kode_obat='K005' OR kode_obat='K007' ;
+
+
